@@ -91,12 +91,22 @@ def read_distances(filename):
 
 
 if __name__ == '__main__':
-    arg = sys.argv[1]
+    # arg = sys.argv[1]
 
-    if arg.endswith('.csv'):
-        dists = read_distances(arg)
-    else:
-        dists = generate_distances(int(arg))
+    # if arg.endswith('.csv'):
+    #     dists = read_distances(arg)
+    # else:
+    #     dists = generate_distances(int(arg))
+
+
+
+    dists = []
+
+    num_nodes = int(raw_input())
+    while num_nodes:
+        num_nodes -= 1;
+        line = raw_input()
+        dists.append(map(int, map(str.strip, line.split(' '))))
 
     # Pretty-print the distance matrix
     for row in dists:
@@ -105,3 +115,5 @@ if __name__ == '__main__':
     print('')
 
     print(held_karp(dists))
+
+# (161, [0, 18, 8, 15, 7, 11, 10, 9, 6, 3, 19, 1, 14, 17, 4, 13, 2, 12, 5, 16]) demo-20.in
